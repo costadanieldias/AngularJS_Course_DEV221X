@@ -1,6 +1,7 @@
 angular.module('app').controller('sessionController', [
     'sessionService',
-    function sessionController(sessionService) {
+    'sessionFactory', 
+    function(sessionService, sessionFactory) {
         var vm = this;
 
         vm.getServiceSession = function() {
@@ -20,6 +21,25 @@ angular.module('app').controller('sessionController', [
         vm.clearServiceSession = function() {
             sessionService.clear();
             vm.getServiceSession();
+        }
+
+        vm.getFactorySession = function() {
+            vm.model = {
+                name: sessionFactory.get('name'),
+                nickname: sessionFactory.get('nickname'),
+                status: 'Retrieved by factory on ' + new Date()
+            };
+        }
+
+        vm.setFactorySession = function() {
+            sessionFactory.save('name', vm.model.name);
+            sessionFactory.save('nickname', vm.model.nickname);
+            vm.getFactorySession();
+        }
+
+        vm.clearFactorySession = function() {
+            sessionFactory.clear();
+            vm.getFactorySession();
         }
     }
 ])
