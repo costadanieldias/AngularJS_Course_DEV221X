@@ -20,10 +20,11 @@ function sessionFactory($window) {
 }*/
 angular.module('app').factory('sessionFactory', [
     '$window',
-    function($window) {
+    'formattingFactory',
+    function($window, formattingFactory) {
         return {
             save: function(key, value) {
-                $window.sessionStorage.setItem(key, value);
+                $window.sessionStorage.setItem(key, formattingFactory.format(value));
             },
             get: function(key) {
                 return $window.sessionStorage.getItem(key);
