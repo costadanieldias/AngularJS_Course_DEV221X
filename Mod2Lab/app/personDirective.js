@@ -7,10 +7,27 @@ angular.module('app')
                 action: '&'
             },
             restrict: 'E',
-            template: 'Name: <input type="text" ng-model="person.name" class="form-control" />' +
-                      'Pen Name: <input type="text" ng-model="person.penName" class="form-control" />' +
-                      '<input type="button" ng-click="action()" value="Action" class="btn btn-primary"/>' + 
-                      '<pre>{{person | json}}</pre>'
+            template: '<div class="row">' +
+                        '<div class="col-sm-3">' +
+                            '<b>{{person.name}}</b>' +
+                        '</div>' +
+                        '<div class="col-sm-3">' +
+                            '{{person.nationality}}' +
+                        '</div>' +
+                        '<div class="col-sm-3">' +
+                            '{{person.dates}}' +
+                        '</div>' +
+                        '<div class="col-sm-3"><input type="button" ng-click="action()" value="Details" class="btn btn-primary"/></div>' +
+                      '</div>',
+            replace: true,
+            link: function(scope, elem, attrs) {
+                        elem.bind('mouseenter', function() {
+                            elem.css('background-color', 'silver')
+                        });
+                        elem.bind('mouseleave', function() {
+                            elem.css('background-color', 'white')
+                        });
+                    }
         };
     }
 ])

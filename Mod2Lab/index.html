@@ -7,19 +7,31 @@
    </head>
 
    <body ng-controller="labController as vm">
-      <div class="container">
-         <h1>Directives</h1>
-         <static-message-directive></static-message-directive>
-         <div static-message-directive></div>
-         <h3-directive title="Keep Calm and Code on"></h3-directive>
-         <person person="vm.person" action="vm.show()"></person>
-      </div>
-
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-      <script src="./app/app.js"></script>
-      <script src="./app/labController.js"></script>
-      <script src="./app/staticMessageDirective.js"></script>
-      <script src="./app/h3Directive.js"></script>      
-      <script src="./app/personDirective.js"></script>
+        <div class="container col-sm-9">
+            <h1>Directives</h1> 
+            <div class="row">
+                <div class="col-sm-3">
+                    <b>Name</b>
+                </div>
+                <div class="col-sm-3">
+                    <b>Nationality</b>
+                </div>
+                <div class="col-sm-3">
+                    <b>Dates</b>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>         
+            <div ng-repeat="person in vm.persons">
+                <person person="person" action="vm.show(person.name)"></person>
+            </div>
+            <!-- <pre>{{vm.persons | json}}</pre> -->
+        </div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="./app/app.js"></script>
+        <script src="./app/labController.js"></script>
+        <script src="./app/staticMessageDirective.js"></script>
+        <script src="./app/h3Directive.js"></script>      
+        <script src="./app/personDirective.js"></script>
    </body>
 </html>
