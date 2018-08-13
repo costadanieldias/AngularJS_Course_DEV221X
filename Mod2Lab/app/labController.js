@@ -26,8 +26,8 @@ angular.module('app')
             },                                    
         ];
 
-        vm.show = function(name) {
-            alert(name);
+        vm.show = function(person) {
+            alert(person.name);
         }
     }
 ])
