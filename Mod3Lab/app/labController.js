@@ -3,7 +3,7 @@ angular.module('app')
     function() {
 
         var vm = this;
-        
+
         vm.alerts = [];
 
         vm.addDanger = function() {
@@ -19,5 +19,13 @@ angular.module('app')
         function addAlert(type, text) {
             vm.alerts.push({type: type, text: text});
         }
+
+        vm.data = new Date();
+
+        vm.dtOptions = {
+            initDate: new Date(),
+            minDate: new Date(),
+            showWeeks: false
+        };
     }
 ]);

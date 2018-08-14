@@ -1,4 +1,4 @@
-angular.module('app', ['ui.bootstrap','ngAnimate']);
+angular.module('app', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 angular.module('app').animation('.alert-animation', [alertAnimation]);
 function alertAnimation() {
     return {
